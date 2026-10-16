@@ -23,6 +23,16 @@ cp .env.example .env   # ضع توكن بوت جديد + ADMIN_ID (لا يُنش
 python3 bot.py         # يعمل على جهازك، بلا استضافة
 ```
 
+### تشغيل دائم على Mac (launchd — يعمل 24/7 ويعود بعد إعادة التشغيل)
+
+```bash
+# أنشئ ~/Library/LaunchAgents/com.baran.cleanerbot.plist يشغّل:
+# python3 -u /path/to/baranexcel/cleaner/bot.py
+launchctl load ~/Library/LaunchAgents/com.baran.cleanerbot.plist
+tail -f /tmp/cleanerbot.log     # المراقبة
+launchctl unload ~/Library/LaunchAgents/com.baran.cleanerbot.plist  # للإيقاف
+```
+
 ## ماذا يفعل
 - أعمدة/صفوف فارغة تماماً ← حذف
 - مسافات زائدة + أعمدة مكررة الاسم ← إصلاح
